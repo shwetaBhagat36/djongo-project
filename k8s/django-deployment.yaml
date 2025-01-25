@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app
+  labels:
+    app: django
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: django
+  template:
+    metadata:
+      labels:
+        app: django
+    spec:
+      containers:
+        - name: django
+          image: arjundange/django-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          command: ["python","/app/manage.py","runserver","0.0.0.0:8000"]
+          env:
+            - name: DEBUG
+              value: "True"
+            - name: DB_NAME
+              value: postgres
+            - name: DB_USER
+              value: postgres
+            - name: DB_PASSWORD
+              value: postgres
+            - name: DB_HOST
+              value: "postgres-service.default.svc.cluster.local"
+            - name: DB_PORT
+              value: "5432"
