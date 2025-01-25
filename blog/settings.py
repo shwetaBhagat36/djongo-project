@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+<<<<<<< HEAD
 import os
+=======
+>>>>>>> a4791219b9cdfdd0d92c4322e0eb7aa9e4ba7ae2
 
 
 
@@ -29,7 +32,11 @@ SECRET_KEY = "django-insecure-u9hjo62g3&=+nxl0)1j&4p@9zo6ucniyo^%4^mb7!cb+dz+cuo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = "localhost 127.0.0.1 [::1]".split(" ")
+=======
+ALLOWED_HOSTS = "localhost 127.0.0.1 [::1] 0.0.0.0".split(" ")
+>>>>>>> a4791219b9cdfdd0d92c4322e0eb7aa9e4ba7ae2
 
 AUTHENTICATION_BACKENDS = ('blog.auth_backend.EmailAuthBackend',)
 
@@ -81,6 +88,7 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     "default": {
+<<<<<<< HEAD
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv("DB_NAME", "postgres"),
         "USER": os.getenv("DB_USER", "postgres"),
@@ -94,6 +102,13 @@ CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379/0')
 CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND', 'redis://localhost:6379/0')
 
 
+=======
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",  # Path to your SQLite database file
+    }
+}
+
+>>>>>>> a4791219b9cdfdd0d92c4322e0eb7aa9e4ba7ae2
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 

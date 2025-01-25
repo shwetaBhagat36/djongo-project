@@ -20,4 +20,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Run the Django development server
+<<<<<<< HEAD
 CMD ["python", "/app/manage.py", "runserver", "0.0.0.0:8000"]
+=======
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+>>>>>>> a4791219b9cdfdd0d92c4322e0eb7aa9e4ba7ae2
